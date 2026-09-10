@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 200" width="850" height="200">
+  <defs>
+    <linearGradient id="og-rosegold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b76e79" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c9a87c" stop-opacity="0.3"/>
+    </linearGradient>
+    <style>
+      @keyframes pulse-accent {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.5; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="200" fill="#0e0e0e" rx="6"/>
+  <rect x="0.5" y="0.5" width="849" height="199" rx="6" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="0.5"/>
+
+  <!-- Inner glass surface -->
+  <rect x="30" y="25" width="790" height="150" rx="4" fill="#ffffff" fill-opacity="0.015" stroke="#ffffff" stroke-opacity="0.03" stroke-width="0.5"/>
+
+  <!-- CURRENTLY BUILDING label -->
+  <text x="70" y="58" fill="#666666" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="10" font-weight="500" letter-spacing="3">CURRENTLY BUILDING</text>
+
+  <!-- Rose-gold accent dot -->
+  <circle cx="186" cy="54" r="2.5" fill="url(#og-rosegold)" style="animation: pulse-accent 4s ease-in-out infinite;"/>
+
+  <!-- OpenORG wordmark -->
+  <text x="70" y="105" fill="#e8e8e8" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" font-size="32" font-weight="600" letter-spacing="2">OpenORG</text>
+
+  <!-- Description -->
+  <text x="70" y="140" fill="#666666" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="13" font-weight="300" letter-spacing="0.3">Organization management platform — keeping workflows simple.</text>
+
+  <!-- Minimal interface mockup on right side -->
+  <!-- Window chrome dots -->
+  <circle cx="620" cy="55" r="3" fill="#333333"/>
+  <circle cx="632" cy="55" r="3" fill="#333333"/>
+  <circle cx="644" cy="55" r="3" fill="#333333"/>
+
+  <!-- Mini interface lines -->
+  <rect x="600" y="75" width="180" height="1" rx="0.5" fill="#ffffff" fill-opacity="0.06"/>
+  <rect x="600" y="95" width="120" height="6" rx="2" fill="#ffffff" fill-opacity="0.04"/>
+  <rect x="600" y="110" width="160" height="6" rx="2" fill="#ffffff" fill-opacity="0.03"/>
+  <rect x="600" y="125" width="90" height="6" rx="2" fill="#ffffff" fill-opacity="0.03"/>
+  <rect x="600" y="145" width="70" height="18" rx="3" fill="url(#og-rosegold)" fill-opacity="0.15" stroke="#c9a87c" stroke-opacity="0.15" stroke-width="0.5"/>
+  <text x="635" y="158" text-anchor="middle" fill="#c9a87c" fill-opacity="0.5" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="8" font-weight="500" letter-spacing="1">OPEN</text>
+
+</svg>
