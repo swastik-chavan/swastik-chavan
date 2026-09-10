@@ -1,58 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 300" width="850" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 190" width="850" height="190">
   <defs>
     <style>
       @keyframes float1 {
-        0%, 100% { transform: translate(0, 0); opacity: 0.03; }
-        50% { transform: translate(12px, -8px); opacity: 0.06; }
-      }
-      @keyframes float2 {
-        0%, 100% { transform: translate(0, 0); opacity: 0.025; }
-        50% { transform: translate(-10px, 6px); opacity: 0.05; }
-      }
-      @keyframes float3 {
         0%, 100% { transform: translate(0, 0); opacity: 0.02; }
-        50% { transform: translate(8px, 10px); opacity: 0.045; }
+        50% { transform: translate(6px, -4px); opacity: 0.035; }
       }
       @keyframes underline-draw {
-        0% { stroke-dashoffset: 200; }
+        0% { stroke-dashoffset: 160; }
         100% { stroke-dashoffset: 0; }
       }
     </style>
     <linearGradient id="rosegold" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#b76e79" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#c9a87c" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#b76e79" stop-opacity="0.6"/>
+      <stop offset="0%" stop-color="#b76e79" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#c9a87c" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#b76e79" stop-opacity="0.4"/>
     </linearGradient>
-    <radialGradient id="bg-glow" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#1a1a1a"/>
-      <stop offset="100%" stop-color="#0d0d0d"/>
-    </radialGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="850" height="300" fill="url(#bg-glow)" rx="8"/>
+  <rect width="850" height="190" fill="#0a0a0a" rx="6"/>
 
-  <!-- Thin glass border -->
-  <rect x="0.5" y="0.5" width="849" height="299" rx="8" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+  <!-- Single subtle floating shape -->
+  <ellipse cx="600" cy="70" rx="90" ry="50" fill="#ffffff" opacity="0.015" style="animation: float1 25s ease-in-out infinite;"/>
 
-  <!-- Subtle floating translucent shapes -->
-  <ellipse cx="180" cy="80" rx="120" ry="80" fill="#ffffff" opacity="0.03" style="animation: float1 20s ease-in-out infinite;"/>
-  <ellipse cx="650" cy="200" rx="100" ry="70" fill="#ffffff" opacity="0.025" style="animation: float2 25s ease-in-out infinite;"/>
-  <circle cx="500" cy="60" r="60" fill="#ffffff" opacity="0.02" style="animation: float3 30s ease-in-out infinite;"/>
+  <!-- Thin border -->
+  <rect x="0.5" y="0.5" width="849" height="189" rx="6" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="0.5"/>
 
-  <!-- Inner subtle glass plane -->
-  <rect x="60" y="40" width="730" height="220" rx="6" fill="#ffffff" fill-opacity="0.012" stroke="#ffffff" stroke-opacity="0.03" stroke-width="0.5"/>
-
-  <!-- SWASTIK — main title -->
-  <text x="425" y="125" text-anchor="middle" fill="#f0f0f0" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" font-size="56" font-weight="700" letter-spacing="8">SWASTIK</text>
+  <!-- SWASTIK -->
+  <text x="425" y="78" text-anchor="middle" fill="#f0f0f0" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" font-size="42" font-weight="700" letter-spacing="6">SWASTIK</text>
 
   <!-- Curved rose-gold underline -->
-  <path d="M 280 138 Q 425 152 570 138" fill="none" stroke="url(#rosegold)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="0" style="animation: underline-draw 2s ease-out forwards;"/>
+  <path d="M 310 90 Q 425 100 540 90" fill="none" stroke="url(#rosegold)" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="160" stroke-dashoffset="0" style="animation: underline-draw 2s ease-out forwards;"/>
 
-  <!-- Experimental Developer — subtitle -->
-  <text x="425" y="175" text-anchor="middle" fill="#888888" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="16" font-weight="300" font-style="italic" letter-spacing="3">Experimental Developer</text>
+  <!-- Experimental Developer -->
+  <text x="425" y="120" text-anchor="middle" fill="#888888" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="15" font-weight="300" font-style="italic" letter-spacing="2.5">Experimental Developer</text>
 
   <!-- Intro line -->
-  <text x="425" y="218" text-anchor="middle" fill="#555555" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="13" font-weight="300" letter-spacing="0.5">I don't really stick to one thing. I just like figuring things out.</text>
+  <text x="425" y="155" text-anchor="middle" fill="#555555" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" font-size="13" font-weight="300" letter-spacing="0.3">I don't really stick to one thing. I just like figuring things out.</text>
 
 </svg>
