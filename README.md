@@ -58,17 +58,17 @@ I experiment across Android, web, tools, AI and whatever else catches my attenti
   </thead>
   <tbody>
     <tr>
-      <td><b>OpenORG</b></td>
+      <td><b><a href="https://github.com/swastik-chavan">OpenORG</a></b></td>
       <td>Organization management platform</td>
       <td align="center"><code>building</code></td>
     </tr>
     <tr>
-      <td><b>Paprivo Website</b></td>
+      <td><b><a href="https://github.com/swastik-chavan/paprivo-website">Paprivo Website</a></b></td>
       <td>Web experience for Paprivo</td>
       <td align="center"><code>completed</code></td>
     </tr>
     <tr>
-      <td><b>Audio Booster</b></td>
+      <td><b><a href="https://github.com/swastik-chavan/audio-booster">Audio Booster</a></b></td>
       <td>Android loudness enhancement app</td>
       <td align="center"><code>completed</code></td>
     </tr>
@@ -114,7 +114,7 @@ I experiment across Android, web, tools, AI and whatever else catches my attenti
 <p align="center"><sub>TOOLS</sub></p>
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" width="56" height="56"/>&nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" width="56" height="56"/>&nbsp;&nbsp;&nbsp;
+  <img src="./assets/icons/github.svg" alt="GitHub" width="56" height="56"/>&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" width="56" height="56"/>&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="56" height="56"/>
 </p>
@@ -127,11 +127,7 @@ I experiment across Android, web, tools, AI and whatever else catches my attenti
 
 <p align="center">
   <a href="https://github.com/swastik-chavan">
-    <img src="https://github-readme-stats.vercel.app/api?username=swastik-chavan&show_icons=true&hide_border=true&bg_color=0e0e0e&title_color=c9a87c&icon_color=c9a87c&text_color=888888&ring_color=b76e79&hide_title=false&hide_rank=true&include_all_commits=true&count_private=true&line_height=28" alt="GitHub stats" height="170"/>
-  </a>
-  &nbsp;
-  <a href="https://github.com/swastik-chavan">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=swastik-chavan&layout=compact&hide_border=true&bg_color=0e0e0e&title_color=c9a87c&text_color=888888&langs_count=8" alt="Top languages" height="170"/>
+    <img src="./assets/github/stats.svg" alt="GitHub stats and top languages" width="780"/>
   </a>
 </p>
 

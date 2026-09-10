@@ -26,6 +26,7 @@ const path = require('path');
 const GITHUB_USER = process.env.GITHUB_USER || 'swastik-chavan';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const OUTPUT_PATH = path.join(__dirname, '..', 'assets', 'github', 'contributions.svg');
+const STATS_OUTPUT_PATH = path.join(__dirname, '..', 'assets', 'github', 'stats.svg');
 
 // Visual config
 const CELL_SIZE = 11;
@@ -45,7 +46,7 @@ const INTENSITY_COLORS = [
   '#999999', // 4
 ];
 
-// ─── Fetch contribution data ──────────────────────────────────
+// ─── Fetch contribution and user data ─────────────────────────
 async function fetchContributions() {
   if (!GITHUB_TOKEN) {
     console.error('Error: GITHUB_TOKEN or GH_TOKEN environment variable is required.');
@@ -67,6 +68,24 @@ async function fetchContributions() {
               }
             }
           }
+        }
+        repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+          totalCount
+          nodes {
+            name
+            languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+              edges {
+                size
+                node {
+                  name
+                  color
+                }
+              }
+            }
+          }
+        }
+        followers {
+          totalCount
         }
       }
     }
@@ -98,7 +117,34 @@ async function fetchContributions() {
     process.exit(1);
   }
 
-  return data.data.user.contributionsCollection.contributionCalendar;
+  const userData = data.data.user;
+  const calendar = userData.contributionsCollection.contributionCalendar;
+  const repos = userData.repositories;
+  const followers = userData.followers;
+
+  // Aggregate languages
+  const languages = {};
+  if (repos && repos.nodes) {
+    for (const repo of repos.nodes) {
+      if (repo.languages && repo.languages.edges) {
+        for (const edge of repo.languages.edges) {
+          const name = edge.node.name;
+          const color = edge.node.color || '#c9a87c';
+          if (!languages[name]) {
+            languages[name] = { bytes: 0, color };
+          }
+          languages[name].bytes += edge.size;
+        }
+      }
+    }
+  }
+
+  return {
+    calendar,
+    repoCount: repos ? repos.totalCount : 8,
+    followersCount: followers ? followers.totalCount : 5,
+    languages,
+  };
 }
 
 // ─── Generate grave SVG element ───────────────────────────────
@@ -281,14 +327,99 @@ ${generateStickman()}
   return svg;
 }
 
+// ─── Generate Stats SVG ───────────────────────────────────────
+function generateStatsSVG(totalContributions, repoCount, followersCount, languages) {
+  const sortedLangs = Object.entries(languages || {}).sort((a, b) => b[1].bytes - a[1].bytes);
+  const totalBytes = sortedLangs.reduce((acc, [, v]) => acc + v.bytes, 0) || 1;
+
+  const top = sortedLangs.slice(0, 2);
+  const lang1 = top[0] || ['TypeScript', { bytes: 463443, color: '#3178c6' }];
+  const lang2 = top[1] || ['Kotlin', { bytes: 234678, color: '#a97bff' }];
+
+  const lang1Pct = ((lang1[1].bytes / totalBytes) * 100).toFixed(1);
+  const lang2Pct = ((lang2[1].bytes / totalBytes) * 100).toFixed(1);
+  const otherPct = Math.max(0, (100 - parseFloat(lang1Pct) - parseFloat(lang2Pct))).toFixed(1);
+
+  const totalBarWidth = 335;
+  const w1 = Math.round((parseFloat(lang1Pct) / 100) * totalBarWidth);
+  const w2 = Math.round((parseFloat(lang2Pct) / 100) * totalBarWidth);
+  const wOther = Math.max(0, totalBarWidth - w1 - w2);
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 120" width="780" height="120">
+  <defs>
+    <linearGradient id="stats-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e0e0e"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="ts-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3178c6"/>
+      <stop offset="100%" stop-color="#4a90e2"/>
+    </linearGradient>
+    <linearGradient id="kt-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a97bff"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a87c"/>
+      <stop offset="100%" stop-color="#b76e79"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="780" height="120" fill="url(#stats-bg)" stroke="#222222" stroke-width="1" rx="6"/>
+
+  <g transform="translate(30, 24)">
+    <text x="0" y="10" fill="#c9a87c" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">ACTIVITY OVERVIEW</text>
+    <g transform="translate(0, 30)">
+      <g transform="translate(0, 0)">
+        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">${totalContributions}</text>
+        <text x="0" y="40" fill="#777777" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="400">Total Contributions</text>
+      </g>
+      <g transform="translate(130, 0)">
+        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">${repoCount}</text>
+        <text x="0" y="40" fill="#777777" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="400">Repositories</text>
+      </g>
+      <g transform="translate(230, 0)">
+        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">${followersCount}</text>
+        <text x="0" y="40" fill="#777777" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="400">Followers</text>
+      </g>
+    </g>
+  </g>
+
+  <line x1="375" y1="20" x2="375" y2="100" stroke="#1f1f1f" stroke-width="1"/>
+
+  <g transform="translate(415, 24)">
+    <text x="0" y="10" fill="#b76e79" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">TOP LANGUAGES</text>
+    <g transform="translate(0, 24)">
+      <rect x="0" y="0" width="${totalBarWidth}" height="8" rx="4" fill="#1c1c1c"/>
+      <rect x="0" y="0" width="${w1}" height="8" rx="4" fill="url(#ts-grad)"/>
+      <rect x="${w1}" y="0" width="${w2}" height="8" fill="url(#kt-grad)"/>
+      <rect x="${w1 + w2}" y="0" width="${wOther}" height="8" rx="4" fill="url(#accent-grad)"/>
+    </g>
+
+    <g transform="translate(0, 52)">
+      <circle cx="4" cy="4" r="3.5" fill="${lang1[1].color || '#3178c6'}"/>
+      <text x="13" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">${lang1[0]} <tspan fill="#666666">${lang1Pct}%</tspan></text>
+
+      <circle cx="130" cy="4" r="3.5" fill="${lang2[1].color || '#a97bff'}"/>
+      <text x="139" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">${lang2[0]} <tspan fill="#666666">${lang2Pct}%</tspan></text>
+
+      <circle cx="230" cy="4" r="3.5" fill="#c9a87c"/>
+      <text x="239" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">Other <tspan fill="#666666">${otherPct}%</tspan></text>
+    </g>
+  </g>
+</svg>`;
+}
+
 // ─── Main ─────────────────────────────────────────────────────
 async function main() {
-  console.log(`Fetching contributions for ${GITHUB_USER}...`);
-  const calendar = await fetchContributions();
+  console.log(`Fetching profile data for ${GITHUB_USER}...`);
+  const data = await fetchContributions();
+  const calendar = data.calendar;
   console.log(`Total contributions: ${calendar.totalContributions}`);
   console.log(`Weeks of data: ${calendar.weeks.length}`);
 
   const svg = generateSVG(calendar);
+  const statsSvg = generateStatsSVG(calendar.totalContributions, data.repoCount, data.followersCount, data.languages);
 
   // Ensure output directory exists
   const outputDir = path.dirname(OUTPUT_PATH);
@@ -298,6 +429,9 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_PATH, svg, 'utf-8');
   console.log(`Contribution graph saved to ${OUTPUT_PATH}`);
+
+  fs.writeFileSync(STATS_OUTPUT_PATH, statsSvg, 'utf-8');
+  console.log(`Stats card saved to ${STATS_OUTPUT_PATH}`);
 }
 
 main().catch((err) => {

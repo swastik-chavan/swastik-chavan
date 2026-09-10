@@ -92,5 +92,5 @@ Search and replace these in the SVG files to change the accent palette.
 
 - **GitHub SVG rendering**: GitHub renders SVGs via `<img>` tags, so CSS animations work but JavaScript does not. All animations use pure CSS `@keyframes`.
 - **External fonts**: GitHub strips external font references. All SVGs use the system font stack which falls back to the viewer's OS fonts.
-- **GitHub stats cards**: The stats and top-languages cards use [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) which is a widely-used, reputable service that fetches real GitHub data.
-- **Caching**: GitHub's image proxy (`camo.githubusercontent.com`) may cache images. After updating the contribution graph, it may take a few minutes to appear on your profile.
+- **Self-contained stats cards**: GitHub stats and top languages are rendered as a custom self-contained SVG (`assets/github/stats.svg`), automatically kept up-to-date by the GitHub Actions workflow without depending on fragile third-party Vercel deployments.
+- **Caching**: GitHub's image proxy (`camo.githubusercontent.com`) may cache images. After updating the contribution graph or stats, it may take a few minutes to appear on your profile.
