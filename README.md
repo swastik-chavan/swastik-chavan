@@ -14,7 +14,6 @@
 <h4 align="center">about</h4>
 
 <p align="center">
-  <b>BSc Computer Science (Semester 6)</b><br>
   Building modern applications across Android and Web platforms.<br>
   Passionate about clean architecture, user experience, and solving real-world problems.
 </p>
