@@ -24,7 +24,7 @@
     <text x="0" y="10" fill="#c9a87c" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">ACTIVITY OVERVIEW</text>
     <g transform="translate(0, 30)">
       <g transform="translate(0, 0)">
-        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">110</text>
+        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">111</text>
         <text x="0" y="40" fill="#777777" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="400">Total Contributions</text>
       </g>
       <g transform="translate(130, 0)">
@@ -44,20 +44,20 @@
     <text x="0" y="10" fill="#b76e79" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">TOP LANGUAGES</text>
     <g transform="translate(0, 24)">
       <rect x="0" y="0" width="335" height="8" rx="4" fill="#1c1c1c"/>
-      <rect x="0" y="0" width="206" height="8" rx="4" fill="url(#ts-grad)"/>
-      <rect x="206" y="0" width="105" height="8" fill="url(#kt-grad)"/>
-      <rect x="311" y="0" width="24" height="8" rx="4" fill="url(#accent-grad)"/>
+      <rect x="0" y="0" width="170" height="8" rx="4" fill="url(#ts-grad)"/>
+      <rect x="170" y="0" width="146" height="8" fill="url(#kt-grad)"/>
+      <rect x="316" y="0" width="19" height="8" rx="4" fill="url(#accent-grad)"/>
     </g>
 
     <g transform="translate(0, 52)">
       <circle cx="4" cy="4" r="3.5" fill="#3178c6"/>
-      <text x="13" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">TypeScript <tspan fill="#666666">61.6%</tspan></text>
+      <text x="13" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">TypeScript <tspan fill="#666666">50.6%</tspan></text>
 
       <circle cx="130" cy="4" r="3.5" fill="#A97BFF"/>
-      <text x="139" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">Kotlin <tspan fill="#666666">31.2%</tspan></text>
+      <text x="139" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">Kotlin <tspan fill="#666666">43.5%</tspan></text>
 
       <circle cx="230" cy="4" r="3.5" fill="#c9a87c"/>
-      <text x="239" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">Other <tspan fill="#666666">7.2%</tspan></text>
+      <text x="239" y="7" fill="#e0e0e0" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10">Other <tspan fill="#666666">5.9%</tspan></text>
     </g>
   </g>
 </svg>
