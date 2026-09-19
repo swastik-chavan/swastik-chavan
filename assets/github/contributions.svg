@@ -414,7 +414,8 @@
     <rect x="848" y="63" width="11" height="11" rx="2" fill="#2a2a2a"/>
     <rect x="848" y="77" width="11" height="11" rx="2" fill="#2a2a2a"/>
     <rect x="848" y="91" width="11" height="11" rx="2" fill="#161616"/>
-    <rect x="848" y="105" width="11" height="11" rx="2" fill="#161616"/>
+    <rect x="848" y="105" width="11" height="11" rx="2" fill="#2a2a2a"/>
+    <rect x="848" y="119" width="11" height="11" rx="2" fill="#161616"/>
   </g>
 
   <!-- Graves on zero-contribution days -->
@@ -2490,10 +2491,10 @@
       <line x1="852.18" y1="97.37" x2="854.82" y2="97.37" stroke="#222" stroke-width="0.4"/>
     </g>
 <g opacity="0.4">
-      <rect x="850.2" y="108.4" width="6.6" height="4.29" rx="0.5" fill="#333"/>
-      <rect x="850.2" y="107.08000000000001" width="6.6" height="1.9799999999999998" rx="0.9899999999999999" fill="#333"/>
-      <line x1="853.5" y1="109.4" x2="853.5" y2="112.69" stroke="#222" stroke-width="0.4"/>
-      <line x1="852.18" y1="111.37" x2="854.82" y2="111.37" stroke="#222" stroke-width="0.4"/>
+      <rect x="850.2" y="122.4" width="6.6" height="4.29" rx="0.5" fill="#333"/>
+      <rect x="850.2" y="121.08000000000001" width="6.6" height="1.9799999999999998" rx="0.9899999999999999" fill="#333"/>
+      <line x1="853.5" y1="123.4" x2="853.5" y2="126.69" stroke="#222" stroke-width="0.4"/>
+      <line x1="852.18" y1="125.37" x2="854.82" y2="125.37" stroke="#222" stroke-width="0.4"/>
     </g>
   </g>
 
@@ -2525,7 +2526,7 @@
   </g>
 
   <!-- Stats footer -->
-  <text x="120" y="188" fill="#333" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="9" letter-spacing="0.5">113 contributions in the last year</text>
+  <text x="120" y="188" fill="#333" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="9" letter-spacing="0.5">114 contributions in the last year</text>
   <text x="820" y="188" text-anchor="end" fill="#2a2a2a" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="8" letter-spacing="1">GITHUB ACTIVITY</text>
 
 </svg>
