@@ -24,7 +24,7 @@
     <text x="0" y="10" fill="#c9a87c" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">ACTIVITY OVERVIEW</text>
     <g transform="translate(0, 30)">
       <g transform="translate(0, 0)">
-        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">114</text>
+        <text x="0" y="22" fill="#f0f6fc" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="600">115</text>
         <text x="0" y="40" fill="#777777" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="400">Total Contributions</text>
       </g>
       <g transform="translate(130, 0)">
