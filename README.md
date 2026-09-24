@@ -14,6 +14,10 @@ code, sometimes with too much AI, and occasionally with both.
 A simple organization management platform built for a college project,
 using React, Vite, and Supabase.
 
+### EYRA
+
+A local-first Android assistant focused on voice interaction, automation, and becoming a more capable digital companion without relying on cloud services.
+
 ### Xerra
 A local-first Android assistant focused on voice interaction,
 automation, and becoming more useful without depending on cloud services.
