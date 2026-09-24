@@ -16,7 +16,8 @@ using React, Vite, and Supabase.
 
 ### EYRA
 
-A local-first Android assistant focused on voice interaction, automation, and becoming a more capable digital companion without relying on cloud services.
+A privacy-focused Android keyboard designed for a fast, minimal, and intelligent typing experience, with useful features built directly into the keyboard.
+
 
 ### Xerra
 A local-first Android assistant focused on voice interaction,
